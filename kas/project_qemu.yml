@@ -1,0 +1,35 @@
+header:
+    version: 18
+    includes:
+        - include/qemuarm64.yml
+
+machine: qemuarm64
+
+distro: poky
+
+target:
+    - core-image-minimal
+
+repos:
+    poky:
+        url: "https://git.yoctoproject.org/git/poky"
+        branch: scarthgap
+        commit: 9c63e0c9646c61663e8cfc6b4c75865cd0cd3b34
+        layers:
+            meta:
+            meta-poky:
+            meta-yocto-bsp:
+
+    meta-openembedded:
+        url: https://git.openembedded.org/meta-openembedded
+        branch: scarthgap
+        commit: e92d0173a80ea7592c866618ef5293203c50544c
+        layers:
+            meta-oe:
+
+local_conf_header:
+    local_dirs: |
+        DL_DIR = "/home/yocto/Projects/dl"
+        SSTATE_DIR = "/home/yocto/Projects/sstate-cache"
+    history: |
+        INHERIT += "buildhistory"
