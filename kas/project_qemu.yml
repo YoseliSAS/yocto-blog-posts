@@ -33,3 +33,5 @@ local_conf_header:
         SSTATE_DIR = "/home/yocto/Projects/sstate-cache"
     history: |
         INHERIT += "buildhistory"
+    debug: |
+        EXTRA_IMAGE_FEATURES += "debug-tweaks"
