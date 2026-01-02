@@ -1,0 +1,12 @@
+header:
+    version: 18
+    includes:
+        - include/common.yml
+        - include/qemuarm64.yml
+        - include/yoseli-apps.yml
+
+machine: qemuarm64
+
+local_conf_header:
+    debug: |
+        EXTRA_IMAGE_FEATURES += "debug-tweaks"
