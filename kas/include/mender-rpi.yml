@@ -1,0 +1,27 @@
+header:
+    version: 18
+    includes:
+        - mender.yml
+
+repos:
+    meta-mender:
+        layers:
+            meta-mender-core:
+            meta-mender-raspberrypi:
+
+local_conf_header:
+    mender-rpi: |
+        # U-Boot integration
+        MENDER_FEATURES_ENABLE:append = " mender-uboot mender-image-sd"
+        MENDER_FEATURES_DISABLE:append = " mender-grub mender-image-uefi"
+
+        # RPi uses U-Boot for A/B selection
+        RPI_USE_U_BOOT = "1"
+
+        # Storage device on RPi
+        MENDER_STORAGE_DEVICE = "/dev/mmcblk0"
+
+        # Partition sizes (adjust based on your SD card)
+        MENDER_BOOT_PART_SIZE_MB = "40"
+        MENDER_DATA_PART_SIZE_MB = "512"
+        MENDER_STORAGE_TOTAL_SIZE_MB = "4096"
