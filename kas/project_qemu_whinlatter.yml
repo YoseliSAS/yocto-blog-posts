@@ -1,0 +1,15 @@
+header:
+    version: 18
+    includes:
+        - include/common-whinlatter.yml
+        - include/qemuarm64-whinlatter.yml
+        - include/yoseli-distro.yml
+        - include/yoseli-apps.yml
+
+machine: qemuarm64
+target: yoseli-image
+
+local_conf_header:
+    debug: |
+        # debug-tweaks deprecated in Whinlatter, use explicit features
+        EXTRA_IMAGE_FEATURES += "allow-empty-password allow-root-login"
