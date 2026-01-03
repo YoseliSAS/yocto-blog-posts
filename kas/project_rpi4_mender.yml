@@ -1,0 +1,13 @@
+header:
+    version: 18
+    includes:
+        - include/common.yml
+        - include/raspberrypi.yml
+        - include/yoseli-apps.yml
+        - include/mender-rpi.yml
+
+machine: raspberrypi4-64
+
+local_conf_header:
+    rpi4-mender: |
+        MENDER_ARTIFACT_NAME = "yoseli-1.0"
