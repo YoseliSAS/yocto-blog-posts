@@ -1,0 +1,36 @@
+header:
+    version: 18
+
+# Whinlatter uses individual repos instead of monolithic poky
+# See: https://docs.yoctoproject.org/dev/migration-guides/migration-5.3.html
+
+repos:
+    bitbake:
+        url: "https://git.openembedded.org/bitbake"
+        branch: "2.16"
+        layers:
+            .: disabled
+
+    openembedded-core:
+        url: "https://git.openembedded.org/openembedded-core"
+        branch: whinlatter
+        layers:
+            meta:
+
+    meta-yocto:
+        url: "https://git.yoctoproject.org/meta-yocto"
+        branch: whinlatter
+        layers:
+            meta-poky:
+            meta-yocto-bsp:
+
+    meta-openembedded:
+        url: "https://git.openembedded.org/meta-openembedded"
+        branch: whinlatter
+        layers:
+            meta-oe:
+
+local_conf_header:
+    local_dirs: |
+        DL_DIR = "/home/yocto/Projects/dl"
+        SSTATE_DIR = "/home/yocto/Projects/sstate-cache"
