@@ -1,0 +1,10 @@
+header:
+    version: 18
+
+# Copy to mender-hosted.yml and add your tenant token
+# DO NOT commit mender-hosted.yml to git
+
+local_conf_header:
+    mender-hosted: |
+        MENDER_SERVER_URL = "https://hosted.mender.io"
+        MENDER_TENANT_TOKEN = "your-tenant-token-from-hosted-mender"
