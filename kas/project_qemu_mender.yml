@@ -1,0 +1,19 @@
+header:
+    version: 18
+    includes:
+        - include/common.yml
+        - include/yoseli-apps.yml
+        - include/mender.yml
+
+machine: qemux86-64
+
+local_conf_header:
+    mender-qemu: |
+        # QEMU x86-64 specific Mender settings
+        MENDER_STORAGE_DEVICE = "/dev/sda"
+        MENDER_BOOT_PART_SIZE_MB = "32"
+        MENDER_DATA_PART_SIZE_MB = "128"
+        MENDER_STORAGE_TOTAL_SIZE_MB = "1024"
+
+        # Use BIOS boot with GRUB
+        MENDER_FEATURES_ENABLE:append = " mender-image-bios mender-grub mender-bios"
