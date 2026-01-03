@@ -5,8 +5,5 @@ repos:
     meta-yoseli-apps:
         path: meta-yoseli-apps
 
-local_conf_header:
-    yoseli-apps: |
-        IMAGE_INSTALL:append = " hello"
-        EXTRA_IMAGE_FEATURES += "ssh-server-dropbear"
-        IMAGE_INSTALL:append = " openssh-sftp-server"
+# Note: hello and SSH are now included via yoseli-image.bb recipe
+# This file just adds the layer to the build

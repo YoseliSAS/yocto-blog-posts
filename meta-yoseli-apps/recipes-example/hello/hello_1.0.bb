@@ -6,10 +6,10 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 SRC_URI = "file://hello.c"
 
-S = "${WORKDIR}"
+S = "${UNPACKDIR}"
 
 do_compile() {
-    ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/hello.c -o hello
+    ${CC} ${CFLAGS} ${LDFLAGS} ${S}/hello.c -o hello
 }
 
 do_install() {
