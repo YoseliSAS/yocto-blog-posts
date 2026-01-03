@@ -1,0 +1,10 @@
+header:
+    version: 18
+
+repos:
+    meta-yoseli-distro:
+        path: meta-yoseli-distro
+
+local_conf_header:
+    yoseli-distro: |
+        DISTRO = "yoseli"
