@@ -1,0 +1,26 @@
+header:
+    version: 18
+
+repos:
+    meta-mender:
+        url: "https://github.com/mendersoftware/meta-mender"
+        branch: scarthgap
+        layers:
+            meta-mender-core:
+
+local_conf_header:
+    mender: |
+        INHERIT += "mender-full"
+
+        # Artifact name - must change for each update
+        MENDER_ARTIFACT_NAME = "release-1"
+
+        # Image type
+        ARTIFACTIMG_FSTYPE = "ext4"
+
+        # Use systemd for Mender (required for mender-client daemon)
+        DISTRO_FEATURES:append = " systemd"
+        INIT_MANAGER = "systemd"
+
+        # Remove work directories after build to save disk space
+        INHERIT += "rm_work"
